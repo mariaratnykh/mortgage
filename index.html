@@ -23,6 +23,16 @@
     </header>
 
     <main class='screen'>
+        
+    </main>
+
+    <footer class="footer">
+        <section class="copyright">
+            Создано</br> <a href="https://github.com/mariaratnykh?tab=repositories">Марией Ратных</a>
+        </section>
+    </footer>
+
+    <template class="input-screen">
         <fieldset class="mortgage-parameters">
             <legend>Укажите предпочтения по ипотеке</legend>
             <div class="monthly-payment__wrap">
@@ -30,7 +40,7 @@
                 <input id="payment-range" type="range" min="0" max="500000" name="payment" value="50000">
                 <input type="text" class="payment-input" value="50000">
             </div>
-            <div class="deposit__wrap">
+            <div class="deposit__wrap">    
                 <label for="deposit-input">Первоначальный взнос</label>
                 <input id="deposit-range" type="range" min="0" max="3000000" name="deposit" value="1500000">
                 <input type="text" class="deposit-input" value="1500000">
@@ -50,61 +60,26 @@
             </ul>
             <button class="mortgage-parameters__button button">Давайте считать</button>
         </article>
-    </main>
-
-    <footer class="footer">
-        <section class="copyright">
-            Создано</br> <a href="https://github.com/mariaratnykh?tab=repositories">Марией Ратных</a>
-        </section>
-    </footer>
-
-    <template class="calculator">
-        <input type="range" min="0" max="300000" name="payment">
     </template>
 
-    <template class="info-screen">
-        <section class="screen__main">
-            <div class="screen__main--container">
-                <div>
-                    <p>Наш сайт создан для тех, кто:
-                    <ul>
-                        <li>
-                            не знает, сколько квадратных метров он может себе позволить
-                        </li>
-                        <li>
-                            устал копить деньги на собственное жилье
-                        </li>
-                        <li>
-                            хочет купить квартиру и при этом не попасть в кабалу
-                        </li>
-                    </ul>
-                    </p>
-                    <p> Даже если все вышеперечисленное к Вам не относится, возможно, вы будете заинтересованы 
-                        предложениями наших банков-партнеров по предоставлению ипотечных займов. Ну или просто посмотрите, 
-                        какую крутую штуку я сделяль 
-                    </p>
-                    <h3>Как пользоваться программой</h3>
-                    <p>
-                        Программа высчитывает стоимость квартиры, которую Вы могли бы себе позволить. 
-                        Очень часто перед покупкой людям бывает трудно определить стоимость объекта недвижимости,
-                        который будет им по карману. Мы поможем определить цену квартиры на основании Ваших предпочтений. 
-                    </p>
-                    <p>
-                        Также после рассчета стоимости недвижимости, мы поможем выбрать банк, который подходит под Ваши условия! 
-                        Посчитаем, какая грозит переплата, и у кого самая выгодная процентная ставка. 
-                    </p>
-                    <p> Данные о банках и процентных ставках актуальны на октябрь 2018 года. Все процентные ставки и условия кредитовая 
-                        взяты с официальных сайтов представленных в выборке банков. 
-                    </p>
-                </div>
-                <div>
-                    <img class="screen__main--image" src="src/img/info.jpg" width="340" height="300">
-                    <button class="screen__main--start  button">Я все понял, погнали!</button>
-                </div>
-            </div>               
-        </section>
+    <template class="bank">
+        <div class="bank__card">
+            <img class="bank__logo" src="src/img/sber.png" width="110" height="100">
+            <div class="bank__description">
+                <h3 class="bank__title">Сбербанк России</h3>
+                    <div class="bank__percentage">10% годовых</div>
+            </div> 
+            <div class="bank__deposit">
+                <div class="bank__deposit--title">10%</div>
+                минимальный<br> первоначальный<br> взнос
+            </div>
+            <div class="bank__rating">
+                <div class="bank__rating--title">2 место</div>
+                в рейтинге<br> банков
+            </div>
+            <button class="bank__card--button button">Подробнее</button>
+        </div>
     </template>
 
-    <script src="src/js/main.js"></script>
-    <script src="src/js/count.js"></script>
+    <script src="dist/bundle.js"></script>
 </body>

@@ -1,7 +1,16 @@
+import {addWhiteSpaceInNumbers, removeWhiteSpaceInNumbers} from './whitespace';
+const YEAR_PERCENT = 9;
+
+export let screen = document.querySelector('.screen');
+screen.appendChild(document.querySelector('.input-screen').content.cloneNode(true));
+
 let paymentInput = document.querySelector('.payment-input');
 let paymentRange = document.querySelector('#payment-range');
 let depositRange = document.querySelector('#deposit-range');
 let depositInput = document.querySelector('.deposit-input');
+
+paymentInput.value = addWhiteSpaceInNumbers(paymentInput.value);
+depositInput.value = addWhiteSpaceInNumbers(depositInput.value);
 
 connectInputs(paymentInput, paymentRange);
 connectInputs(depositInput, depositRange);
@@ -19,44 +28,21 @@ function connectInputs(inputText, inputRange) {
     })
 }
 
-paymentInput.value = addWhiteSpaceInNumbers(paymentInput.value);
-depositInput.value = addWhiteSpaceInNumbers(depositInput.value);
-
-function addWhiteSpaceInNumbers (str) {
-    let stringArray = str.split('');
-    let whitespaceCount = Math.floor(str.length/3);
-    if(whitespaceCount == 0) {
-        return str;
-    }
-    let whitespacePosition = [];
-    // count the place of first whitespace
-    whitespacePosition[0] = str.length % 3;
-    // count places of other whitespace
-    for(let i = 1; i < whitespaceCount; i++) {
-        whitespacePosition[i] = whitespacePosition[i-1] + 3;
-    }
-    // sort the array from max to min to not affect position of whitespace
-    whitespacePosition.sort((a,b) => b-a);
-    whitespacePosition.forEach((number) => stringArray.splice(number, 0, ' '))
-    let strWithWhiteSpace = stringArray.join('');
-    return strWithWhiteSpace;
-}
-
-function removeWhiteSpaceInNumbers (str) {
-    let outStr = str.split(' ').join('');
-    return outStr;
-}
-
 const countButton = document.querySelector('.mortgage-parameters__button');
-
-const payment;
-const deposit;
-const duration;
+import {showBanks} from './showbanks';
 
 countButton.addEventListener('click', function(evt) {
-    payment = removeWhiteSpaceInNumbers(paymentInput.value);
-    deposit = removeWhiteSpaceInNumbers(depositInput.value);
-    duration = document.querySelector('.duration-input').value;
+    const userInfo = {
+        payment: removeWhiteSpaceInNumbers(paymentInput.value),
+        deposit: removeWhiteSpaceInNumbers(depositInput.value),
+        duration: document.querySelector('.duration-input').value,
+        get maxCredit() {
+            let creditAmount = Math.round((1200 * this.payment*(1 - Math.pow((1 + YEAR_PERCENT/1200), -12 * this.duration)))/YEAR_PERCENT);
+            return creditAmount;
+        },
+        get totalPropertyCost() {
+            return +this.maxCredit + +this.deposit
+        }
+    }
+    showBanks(userInfo);
 })
-
-export {payment, deposit, duration}
