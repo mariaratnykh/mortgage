@@ -1,5 +1,6 @@
 import {banks} from './banks';
-import {screen} from './main';
+
+let screen = document.querySelector('.screen')
 
 // function checks if the summ of deposit is enough for a chosen credit amount
 function getSuitableBanks (userInfo) {

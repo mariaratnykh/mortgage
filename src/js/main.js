@@ -1,7 +1,9 @@
 import {addWhiteSpaceInNumbers, removeWhiteSpaceInNumbers} from './whitespace';
+import {showbanks} from './showbanks';
+
 const YEAR_PERCENT = 9;
 
-export let screen = document.querySelector('.screen');
+let screen = document.querySelector('.screen');
 screen.appendChild(document.querySelector('.input-screen').content.cloneNode(true));
 
 let paymentInput = document.querySelector('.payment-input');
@@ -29,10 +31,10 @@ function connectInputs(inputText, inputRange) {
 }
 
 const countButton = document.querySelector('.mortgage-parameters__button');
-import {showBanks} from './showbanks';
+
 
 countButton.addEventListener('click', function(evt) {
-    const userInfo = {
+    let userInfo = {
         payment: removeWhiteSpaceInNumbers(paymentInput.value),
         deposit: removeWhiteSpaceInNumbers(depositInput.value),
         duration: document.querySelector('.duration-input').value,
