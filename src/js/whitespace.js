@@ -1,6 +1,7 @@
 export {addWhiteSpaceInNumbers, removeWhiteSpaceInNumbers}
 
-function addWhiteSpaceInNumbers (str) {
+function addWhiteSpaceInNumbers (param) {
+    let str = String(param);
     let stringArray = str.split('');
     let whitespaceCount = Math.floor(str.length/3);
     if(whitespaceCount == 0) {
@@ -20,7 +21,8 @@ function addWhiteSpaceInNumbers (str) {
     return strWithWhiteSpace;
 }
 
-function removeWhiteSpaceInNumbers (str) {
+function removeWhiteSpaceInNumbers (param) {
+    let str = String(param);
     let outStr = str.split(' ').join('');
     return outStr;
 }

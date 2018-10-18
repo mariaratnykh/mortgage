@@ -1,16 +1,30 @@
 import {banks} from './banks';
+import {addWhiteSpaceInNumbers} from './whitespace';
+export {showMaxPropertyCost, showBanks};
 
-let screen = document.querySelector('.screen')
+let screen = document.querySelector('.screen');
 
-// function checks if the summ of deposit is enough for a chosen credit amount
-function getSuitableBanks (userInfo) {
-    let suitableBanks = new Set;
+function getMaxPropertyCostAndBankName(banks) {
+    let loansArray = [];
+    let banksNames = [];
     banks.forEach((bank) => {
-        if(userInfo.deposit / userInfo.totalPropertyCost > (bank.depositPercent/100)) {
-            suitableBanks.add(bank);
+        if (bank.isGiveTheLoan) {
+            loansArray.push(+bank.creditAmountPlusDeposit);
+            banksNames.push(bank.name);
         }
-    })
-    return suitableBanks;
+    });
+    let maxLoan = Math.max.apply(null, loansArray);
+    let maxLoanIndex = loansArray.indexOf(maxLoan);
+    return [loansArray[maxLoanIndex], banksNames[maxLoanIndex]];
+}
+
+function showMaxPropertyCost () {
+    let values = getMaxPropertyCostAndBankName(banks);
+    console.log(values);
+    let totalCost = document.createElement('h3');
+    totalCost.textContent = `Максимально возможная стоимость квартиры по вашим
+     параметрам составляет ${addWhiteSpaceInNumbers(values[0])} рублей в банке "${values[1]}"`;
+    screen.insertBefore(totalCost, screen.firstChild);
 }
 
 function createBankCard (bank) {
@@ -22,13 +36,12 @@ function createBankCard (bank) {
     return template;
 }
 
-export function showBanks (userInfo) {
-    let suitableBanks = getSuitableBanks(userInfo);
-    if(suitableBanks.size === 0) {
-        alert('По вашим данным нет предложений от банков. Попробуйте увеличить первоначальный взнос');
-        return;
-    } else {
-        screen.textContent = "";
-        suitableBanks.forEach((bank) => screen.appendChild(createBankCard(bank)))
-    }
+function showBanks () {
+    //let userInfo = param;
+    screen.textContent = "";
+    banks.forEach((bank) => {
+        if(bank.isGiveTheLoan) {
+            screen.appendChild(createBankCard(bank))
+        }
+    })
 }

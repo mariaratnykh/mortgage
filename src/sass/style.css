@@ -40,6 +40,7 @@ body {
 
 /* MAIN */
 
+
 .screen {
     box-sizing: border-box;
     width: 80%;
@@ -226,6 +227,7 @@ fieldset {
     width: 100%;
     border: 2px solid grey;
     margin-top: 10px;
+    padding: 10px;
     display: flex;
     align-content: center;
 }
@@ -261,4 +263,17 @@ fieldset {
 .bank__card--button {
     width: 120px;
     align-self: center;
+}
+
+/* BANKS POPUPS */
+
+.hidden {
+    display: none;
+}
+
+.popup {
+    z-index: 1;
+    width: 500px;
+    height: 500px;
+    position: absolute;
 }

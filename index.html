@@ -23,7 +23,33 @@
     </header>
 
     <main class='screen'>
-        
+        <fieldset class="mortgage-parameters">
+            <legend>Укажите предпочтения по ипотеке</legend>
+            <div class="monthly-payment__wrap">
+                <label for="payment-input">Платеж, руб/мес</label>
+                <input id="payment-range" type="range" min="0" max="500000" name="payment" value="50000">
+                <input type="text" class="payment-input" value="50000">
+            </div>
+            <div class="deposit__wrap">    
+                <label for="deposit-input">Первоначальный взнос</label>
+                <input id="deposit-range" type="range" min="0" max="3000000" name="deposit" value="1500000">
+                <input type="text" class="deposit-input" value="1500000">
+            </div>
+            <div class="duration__wrap">
+                <label for="duration-input">Срок, лет</label>
+                <input type="number" class="duration-input" value="10" min="1" max="30">
+            </div>
+        </fieldset>
+        <article>
+            Советы по выбору параметров: 
+            <ul>
+                <li>При слишком маленьком первоначальном взносе практически все банки отказывают в выдаче 
+                    кредита на недвижимость. Учитывайте это при выставлении параметров.
+                </li>
+                <li>Срок выдачи кредита ограничем 1 и 30 годами</li>
+            </ul>
+            <button class="mortgage-parameters__button button">Давайте считать</button>
+        </article>
     </main>
 
     <footer class="footer">
@@ -78,6 +104,9 @@
                 в рейтинге<br> банков
             </div>
             <button class="bank__card--button button">Подробнее</button>
+            <div class='popup hidden'>
+                Hello world!
+            </div>
         </div>
     </template>
 

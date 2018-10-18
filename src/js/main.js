@@ -1,50 +1,32 @@
-import {addWhiteSpaceInNumbers, removeWhiteSpaceInNumbers} from './whitespace';
-import {showbanks} from './showbanks';
-
-const YEAR_PERCENT = 9;
-
-let screen = document.querySelector('.screen');
-screen.appendChild(document.querySelector('.input-screen').content.cloneNode(true));
-
-let paymentInput = document.querySelector('.payment-input');
-let paymentRange = document.querySelector('#payment-range');
-let depositRange = document.querySelector('#deposit-range');
-let depositInput = document.querySelector('.deposit-input');
-
-paymentInput.value = addWhiteSpaceInNumbers(paymentInput.value);
-depositInput.value = addWhiteSpaceInNumbers(depositInput.value);
+import {removeWhiteSpaceInNumbers} from './whitespace';
+import {connectInputs ,paymentInput, paymentRange, depositRange, depositInput} from './connect-inputs';
+import {showBanks, showMaxPropertyCost} from './showbanks';
+import {minPercent, banks} from './banks';
 
 connectInputs(paymentInput, paymentRange);
 connectInputs(depositInput, depositRange);
 
-function connectInputs(inputText, inputRange) {
-    inputText.addEventListener('input', function(evt) {
-        let temp = removeWhiteSpaceInNumbers(evt.target.value);
-        inputRange.value = temp;
-        inputText.value = addWhiteSpaceInNumbers(temp);
-    })
-    
-    inputRange.addEventListener('input', function(evt) {
-        inputText.value = evt.target.value;
-        inputText.value = addWhiteSpaceInNumbers(inputText.value);
-    })
-}
-
 const countButton = document.querySelector('.mortgage-parameters__button');
-
-
 countButton.addEventListener('click', function(evt) {
-    let userInfo = {
+    window.userInfo = {
         payment: removeWhiteSpaceInNumbers(paymentInput.value),
         deposit: removeWhiteSpaceInNumbers(depositInput.value),
         duration: document.querySelector('.duration-input').value,
         get maxCredit() {
-            let creditAmount = Math.round((1200 * this.payment*(1 - Math.pow((1 + YEAR_PERCENT/1200), -12 * this.duration)))/YEAR_PERCENT);
+            let creditAmount = Math.round((1200 * this.payment*(1 - Math.pow((1 + minPercent/1200), -12 * this.duration)))/minPercent);
             return creditAmount;
         },
         get totalPropertyCost() {
             return +this.maxCredit + +this.deposit
         }
     }
-    showBanks(userInfo);
+    showBanks();
+    showMaxPropertyCost();
+    console.log(banks[1].creditAmountForUser);
+    console.log(banks[1].creditAmountPlusDeposit);
+    console.log(banks[1].interestPaymentsPerMonth);
+    console.log(banks[1].interestPaymentsPerYear);
+    console.log(banks[1].interestPaymentsTotal);
+    console.log(banks[1].isGiveTheLoan);
+    console.log(banks);
 })
