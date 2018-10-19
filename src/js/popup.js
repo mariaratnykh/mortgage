@@ -14,13 +14,12 @@ function makeBanksButtonsFunctional (){
 function showPopup (evt) {
     let targetBank = evt.target.data;
     document.body.appendChild(createPopup(targetBank));
-    debugger;
-    createChartForLoan(targetBank.interestPaymentsPerYear, '-й год');
+    createChartForLoan(targetBank.interestPaymentsPerYear);
     switchChart (targetBank);
 
     let popupCloseButton = document.querySelector('.popup__close');
     popupCloseButton.addEventListener('click', function(evt) {
-        document.body.removeChild(document.querySelector('.hide'));
+        document.body.removeChild(document.querySelector('.popup__wrapper'));
     })
 }
 
@@ -34,10 +33,10 @@ function createPopup (bank) {
 
 function switchChart (bank) {
     document.getElementById('percent-month').addEventListener('click', function(evt) {
-        createChartForLoan(bank.interestPaymentsPerMonth, '-й год');
+        createChartForLoan(bank.interestPaymentsPerMonth);
     });
     document.getElementById('loan-month').addEventListener('click', function(evt) {
-        createChartForLoan(bank.loanPaymentsPerMonth, '-й год')
+        createChartForLoan(bank.loanPaymentsPerMonth)
     });
 }
 

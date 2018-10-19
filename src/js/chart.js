@@ -1,4 +1,4 @@
-export function createChartForLoan (param, label) {
+export function createChartForLoan (param) {
 
     let years = userInfo.duration;
     let labelsForChart = [];
@@ -22,7 +22,7 @@ export function createChartForLoan (param, label) {
         showArea: true,
         axisX: {
             labelInterpolationFnc: function (value) {
-                return value + label;
+                return value + '-й год';
             }
         }
       })
