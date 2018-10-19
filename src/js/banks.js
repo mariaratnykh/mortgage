@@ -2,7 +2,8 @@ export {banks, minPercent};
 
 class Bank {
 
-    constructor(name, percent, deposit, logo) {
+    constructor(id, name, percent, deposit, logo) {
+        this.id = id,
         this.name = name,
         this.percent = percent,
         this.depositPercent = deposit,
@@ -37,6 +38,22 @@ class Bank {
         return this.interestPaymentsPerYear.reduce((a,b) => a + b);
     }
 
+    get loanPaymentsPerMonth() {
+        let outputArr = [];
+        this.interestPaymentsPerMonth.forEach((value, i) =>  {
+            outputArr[i] = userInfo.payment - value;
+        });
+        return outputArr;
+    }
+
+    get loanPaymentsPerYear() {
+        let outputArr = [];
+        this.loanPaymentsPerMonth.forEach((value, i) =>  {
+            outputArr[i] = value*12;
+        });
+        return outputArr;
+    }
+
     get interestPaymentsPerMonth() {
         let interestPerMonth = this.interestPaymentsPerYear.map((a) => Math.round(a/12));
         return interestPerMonth;
@@ -47,10 +64,10 @@ class Bank {
     }
 }
 
-let gas = new Bank('Газпромбанк', '9', '10','src/img/gas.png');
-let vtb = new Bank('ВТБ', '8.9', '20', 'src/img/vtb.jpg');
-let sber = new Bank('Сбербанк России', '7.1', '15', 'src/img/sber.png');
-let open = new Bank('Открытие', '8.7', '10', 'src/img/open.jpeg');
+let gas = new Bank('gas', 'Газпромбанк', '9', '10','src/img/gas.png');
+let vtb = new Bank('vtb', 'ВТБ', '8.9', '20', 'src/img/vtb.jpg');
+let sber = new Bank('sber', 'Сбербанк России', '7.6', '15', 'src/img/sber.png');
+let open = new Bank('open', 'Открытие', '8.7', '10', 'src/img/open.jpeg');
 
 const banks = [gas, vtb, sber, open];
 

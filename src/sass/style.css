@@ -267,13 +267,91 @@ fieldset {
 
 /* BANKS POPUPS */
 
-.hidden {
-    display: none;
+.hide {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    overflow:hidden;
+    position:fixed;
+    top:0px;
 }
 
 .popup {
     z-index: 1;
-    width: 500px;
+    display: flex;
+    width: 800px;
     height: 500px;
     position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    border: 2px solid grey;
+    background: #FFFFFF;
 }
+
+.popup__title {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.popup__info {
+    min-width: 350px;
+    box-sizing: border-box;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup__chart {
+    margin: auto;
+    margin-left: 10px;
+}
+
+.popup__close {
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+}
+
+.hidden {
+    display: none;
+}
+/* CHECKBOX */ 
+
+input[type = radio] {
+	display: none;
+}
+/* Задаем внешний вид для нашего кастомного чекбокса. Все обязательные свойства прокомментированы, остальные же свойства меняйте по вашему усмотрению */
+.radio-custom {
+	position: relative;      /* Обязательно задаем, чтобы мы могли абсолютным образом позиционировать псевдоэлемент внютри нашего кастомного чекбокса */
+	width: 20px;             /* Обязательно задаем ширину */
+	height: 20px;            /* Обязательно задаем высоту */
+	border: 2px solid #ccc;
+	border-radius: 3px;
+}
+/* Кастомный чекбокс и лейбл центрируем по вертикали. Если вам это не требуется, то вы можете убрать свойство vertical-align: middle из данного правила, но свойство display: inline-block обязательно должно быть */
+.radio-custom,
+.label {
+	display: inline-block;
+	vertical-align: middle;
+}
+/* Если реальный чекбокс у нас отмечен, то тогда добавляем данный признак и к нашему кастомному чекбоксу  */
+input[type = radio]:checked + .radio-custom::before {
+	content: "";             /* Добавляем наш псевдоэлемент */
+	display: block;			 /* Делаем его блочным элементом */
+	position: absolute;      /* Позиционируем его абсолютным образом */
+	/* Задаем расстояние от верхней, правой, нижней и левой границы */
+	top: 2px;
+	right: 2px;
+	bottom: 2px;
+	left: 2px;
+	background: #413548;     /* Добавляем фон. Если требуется, можете поставить сюда картинку в виде "галочки", которая будет символизировать, что чекбокс отмечен */
+	border-radius: 2px;
+}
+
+/* CHART */

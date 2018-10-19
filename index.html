@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Пора купить квартиру</title>
   <link href="src/sass/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="node_modules/chartist-webpack/dist/chartist.min.css">
 </head>
 
 <body>
@@ -104,11 +105,41 @@
                 в рейтинге<br> банков
             </div>
             <button class="bank__card--button button">Подробнее</button>
-            <div class='popup hidden'>
-                Hello world!
+        </div>
+    </template>
+
+    <template class="bank__popup">
+        <div class="hide">
+            <div class='popup'>
+                <div class="popup__chart ct-chart"></div>
+                <div class="popup__info">
+                    <h3 class='popup__title'>Сбербанк России</h3>
+                    <div class="popup__loan">Банк готов предоставить Вам сумму рублей</div><br>
+                    <div class="popup__percent-payment">Переплата составит Х рублей</div>
+                
+                    <form class="popup__form"> 
+                        <p>Показывать на графике выплаты в месяц:</p>
+                        <label>
+                            <input type="radio" id="percent-month" name="loan-info" value="percent-month" checked>
+                            <span class="radio-custom"></span>
+                            <span class="label">В счет погашения процентов</span>
+                        </label><br>
+                        <label>
+                            <input type="radio" id="loan-month" name="loan-info">
+                            <span class="radio-custom"></span>
+                            <span class="label">В счет погашения<br> основного долга</span>
+                        </label>
+                    </form>
+                </div>
+                <svg class="popup__close">
+                    <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="black" />
+                    <path stroke="white" stroke-width="2" fill="white" d="M8,8,16,16" />
+                    <path stroke="white" stroke-width="2" fill="white" d="M8,16,16,8" />
+                </svg>
             </div>
         </div>
     </template>
 
+    <script src="node_modules/chartist-webpack/dist/chartist.min.js"></script>
     <script src="dist/bundle.js"></script>
 </body>

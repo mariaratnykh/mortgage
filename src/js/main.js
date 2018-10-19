@@ -2,6 +2,7 @@ import {removeWhiteSpaceInNumbers} from './whitespace';
 import {connectInputs ,paymentInput, paymentRange, depositRange, depositInput} from './connect-inputs';
 import {showBanks, showMaxPropertyCost} from './showbanks';
 import {minPercent, banks} from './banks';
+import {makeBanksButtonsFunctional} from './popup';
 
 connectInputs(paymentInput, paymentRange);
 connectInputs(depositInput, depositRange);
@@ -22,11 +23,6 @@ countButton.addEventListener('click', function(evt) {
     }
     showBanks();
     showMaxPropertyCost();
-    console.log(banks[1].creditAmountForUser);
-    console.log(banks[1].creditAmountPlusDeposit);
-    console.log(banks[1].interestPaymentsPerMonth);
-    console.log(banks[1].interestPaymentsPerYear);
-    console.log(banks[1].interestPaymentsTotal);
-    console.log(banks[1].isGiveTheLoan);
-    console.log(banks);
+    console.log(document.querySelector('.bank__card--button').data)
+    makeBanksButtonsFunctional();
 })
