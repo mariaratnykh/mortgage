@@ -1,0 +1,31 @@
+{
+  "name": "mortgage",
+  "version": "1.0.0",
+  "main": "src/js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack --watch"
+  },
+  "author": "Maria Ratnykh",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "chartist-webpack": "^0.9.5-0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariaratnykh/mortgage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mariaratnykh/mortgage/issues"
+  },
+  "homepage": "https://github.com/mariaratnykh/mortgage#readme",
+  "description": ""
+}
