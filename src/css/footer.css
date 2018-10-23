@@ -1,0 +1,18 @@
+.footer {
+  width: 100%;
+  height: 60px;
+  padding-top: 10px;
+  background: #6a5e72;
+}
+
+.copyright {
+  color: white;
+  float: right;
+  margin-right: 50px;
+  vertical-align: center;
+  font-size: 20px;
+}
+
+.copyright a{
+  color: white;
+}

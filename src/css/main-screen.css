@@ -1,0 +1,19 @@
+.screen {
+  box-sizing: border-box;
+  width: 80%;
+  margin: auto;
+  padding: 50px;
+  box-shadow: 0 0 50px 0 #6a5e72;
+
+  font-size: 20px;
+}
+
+.screen__main--container {
+  display: flex;
+}
+
+.screen__main--start {
+  margin-left: 130px;
+  padding: 10px;
+  text-decoration: none;
+}

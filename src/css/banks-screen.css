@@ -1,0 +1,41 @@
+.bank__card {
+  width: 100%;
+  border: 2px solid grey;
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  align-content: center;
+}
+
+.bank__description {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.bank__logo {
+  margin: 10px;
+  margin-right: 30px;
+}
+
+.bank__deposit,
+.bank__rating  {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  border: 1px solid grey;
+  margin: 15px;
+
+  font-size: 15px;
+}
+
+.bank__deposit--title,
+.bank__rating--title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.bank__card--button {
+  width: 120px;
+  align-self: center;
+}
