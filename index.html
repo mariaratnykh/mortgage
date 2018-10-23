@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Пора купить квартиру</title>
   <link href="src/sass/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="node_modules/chartist-webpack/dist/chartist.min.css">
 </head>
 
 <body>
@@ -23,34 +22,41 @@
         </ul>
     </header>
 
-    <main class='screen'>
-        <fieldset class="mortgage-parameters">
-            <legend>Укажите предпочтения по ипотеке</legend>
-            <div class="monthly-payment__wrap">
-                <label for="payment-input">Платеж, руб/мес</label>
-                <input id="payment-range" type="range" min="0" max="500000" name="payment" value="50000">
-                <input type="text" class="payment-input" value="50000">
-            </div>
-            <div class="deposit__wrap">    
-                <label for="deposit-input">Первоначальный взнос</label>
-                <input id="deposit-range" type="range" min="0" max="3000000" name="deposit" value="1500000">
-                <input type="text" class="deposit-input" value="1500000">
-            </div>
-            <div class="duration__wrap">
-                <label for="duration-input">Срок, лет</label>
-                <input type="number" class="duration-input" value="10" min="1" max="30">
-            </div>
-        </fieldset>
-        <article>
-            Советы по выбору параметров: 
-            <ul>
-                <li>При слишком маленьком первоначальном взносе практически все банки отказывают в выдаче 
-                    кредита на недвижимость. Учитывайте это при выставлении параметров.
-                </li>
-                <li>Срок выдачи кредита ограничем 1 и 30 годами</li>
-            </ul>
-            <button class="mortgage-parameters__button button">Давайте считать</button>
-        </article>
+    <main class="screen">
+        <section class="screen__main">
+            <div class="screen__main--container">
+                <div>
+                    <p>Наш сайт создан для тех, кто:
+                    <ul>
+                        <li>не знает, сколько квадратных метров он может себе позволить</li>
+                        <li>устал копить деньги на собственное жилье</li>
+                        <li>хочет купить квартиру и при этом не попасть в кабалу</li>
+                    </ul>
+                    </p>
+                    <p> Даже если все вышеперечисленное к Вам не относится, возможно, вы будете заинтересованы 
+                        предложениями наших банков-партнеров по предоставлению ипотечных займов. Ну или просто посмотрите, 
+                        какую крутую штуку я сделяль 
+                    </p>
+                    <h3>Как пользоваться программой</h3>
+                    <p>
+                        Программа высчитывает стоимость квартиры, которую Вы могли бы себе позволить. 
+                        Очень часто перед покупкой людям бывает трудно определить стоимость объекта недвижимости,
+                        который будет им по карману. Мы поможем определить цену квартиры на основании Ваших предпочтений. 
+                    </p>
+                    <p>
+                        Также после рассчета стоимости недвижимости, мы поможем выбрать банк, который подходит под Ваши условия! 
+                        Посчитаем, какая грозит переплата, и у кого самая выгодная процентная ставка. 
+                    </p>
+                    <p> Данные о банках и процентных ставках актуальны на октябрь 2018 года. Все процентные ставки и условия кредитовая 
+                        взяты с официальных сайтов представленных в выборке банков. 
+                    </p>
+                </div>
+                <div>
+                    <img class="screen__main--image" src="src/img/info.jpg" width="340" height="300">
+                    <a class="screen__main--start button" href="../mortgage/calculate.html">Понял, погнали!</a>
+                </div>
+            </div>               
+        </section>
     </main>
 
     <footer class="footer">
@@ -58,88 +64,4 @@
             Создано</br> <a href="https://github.com/mariaratnykh?tab=repositories">Марией Ратных</a>
         </section>
     </footer>
-
-    <template class="input-screen">
-        <fieldset class="mortgage-parameters">
-            <legend>Укажите предпочтения по ипотеке</legend>
-            <div class="monthly-payment__wrap">
-                <label for="payment-input">Платеж, руб/мес</label>
-                <input id="payment-range" type="range" min="0" max="500000" name="payment" value="50000">
-                <input type="text" class="payment-input" value="50000">
-            </div>
-            <div class="deposit__wrap">    
-                <label for="deposit-input">Первоначальный взнос</label>
-                <input id="deposit-range" type="range" min="0" max="3000000" name="deposit" value="1500000">
-                <input type="text" class="deposit-input" value="1500000">
-            </div>
-            <div class="duration__wrap">
-                <label for="duration-input">Срок, лет</label>
-                <input type="number" class="duration-input" value="10" min="1" max="30">
-            </div>
-        </fieldset>
-        <article>
-            Советы по выбору параметров: 
-            <ul>
-                <li>При слишком маленьком первоначальном взносе практически все банки отказывают в выдаче 
-                    кредита на недвижимость. Учитывайте это при выставлении параметров.
-                </li>
-                <li>Срок выдачи кредита ограничем 1 и 30 годами</li>
-            </ul>
-            <button class="mortgage-parameters__button button">Давайте считать</button>
-        </article>
-    </template>
-
-    <template class="bank">
-        <div class="bank__card">
-            <img class="bank__logo" src="src/img/sber.png" width="110" height="100">
-            <div class="bank__description">
-                <h3 class="bank__title">Сбербанк России</h3>
-                <div class="bank__percentage">10% годовых</div>
-            </div> 
-            <div class="bank__deposit">
-                <div class="bank__deposit--title">10%</div>
-                минимальный<br> первоначальный<br> взнос
-            </div>
-            <div class="bank__rating">
-                <div class="bank__rating--title">2 место</div>
-                в рейтинге<br> банков
-            </div>
-            <button class="bank__card--button button">Подробнее</button>
-        </div>
-    </template>
-
-    <template class="bank__popup">
-        <div class="popup__wrapper">
-            <div class='popup'>
-                <div class="popup__chart ct-chart"></div>
-                <div class="popup__info">
-                    <h3 class='popup__title'>Сбербанк России</h3>
-                    <div class="popup__loan">Банк готов предоставить Вам сумму рублей</div><br>
-                    <div class="popup__percent-payment">Переплата составит Х рублей</div>
-                
-                    <form class="popup__form"> 
-                        <p>Показывать на графике выплаты в месяц:</p>
-                        <label>
-                            <input type="radio" id="percent-month" name="loan-info" value="percent-month" checked>
-                            <span class="radio-custom"></span>
-                            <span class="label">В счет погашения процентов</span>
-                        </label><br>
-                        <label>
-                            <input type="radio" id="loan-month" name="loan-info">
-                            <span class="radio-custom"></span>
-                            <span class="label">В счет погашения<br> основного долга</span>
-                        </label>
-                    </form>
-                </div>
-                <svg class="popup__close">
-                    <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="black" />
-                    <path stroke="white" stroke-width="2" fill="white" d="M8,8,16,16" />
-                    <path stroke="white" stroke-width="2" fill="white" d="M8,16,16,8" />
-                </svg>
-            </div>
-        </div>
-    </template>
-
-    <script src="node_modules/chartist-webpack/dist/chartist.min.js"></script>
-    <script src="dist/bundle.js"></script>
 </body>

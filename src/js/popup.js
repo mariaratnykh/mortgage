@@ -14,7 +14,7 @@ function makeBanksButtonsFunctional (){
 function showPopup (evt) {
     let targetBank = evt.target.data;
     document.body.appendChild(createPopup(targetBank));
-    createChartForLoan(targetBank.interestPaymentsPerYear);
+    createChartForLoan(targetBank.interestPaymentsPerMonth);
     switchChart (targetBank);
 
     let popupCloseButton = document.querySelector('.popup__close');

@@ -1,4 +1,3 @@
-/* $header-color: #6a5e72; */
 /* HEADER */
 body {
     margin: 0;
@@ -39,7 +38,6 @@ body {
 }
 
 /* MAIN */
-
 
 .screen {
     box-sizing: border-box;
@@ -326,32 +324,29 @@ fieldset {
 input[type = radio] {
 	display: none;
 }
-/* Задаем внешний вид для нашего кастомного чекбокса. Все обязательные свойства прокомментированы, остальные же свойства меняйте по вашему усмотрению */
+
 .radio-custom {
-	position: relative;      /* Обязательно задаем, чтобы мы могли абсолютным образом позиционировать псевдоэлемент внютри нашего кастомного чекбокса */
-	width: 20px;             /* Обязательно задаем ширину */
-	height: 20px;            /* Обязательно задаем высоту */
+	position: relative;
+	width: 20px;
+	height: 20px;
 	border: 2px solid #ccc;
 	border-radius: 3px;
 }
-/* Кастомный чекбокс и лейбл центрируем по вертикали. Если вам это не требуется, то вы можете убрать свойство vertical-align: middle из данного правила, но свойство display: inline-block обязательно должно быть */
+
 .radio-custom,
 .label {
 	display: inline-block;
 	vertical-align: middle;
 }
-/* Если реальный чекбокс у нас отмечен, то тогда добавляем данный признак и к нашему кастомному чекбоксу  */
+
 input[type = radio]:checked + .radio-custom::before {
-	content: "";             /* Добавляем наш псевдоэлемент */
-	display: block;			 /* Делаем его блочным элементом */
-	position: absolute;      /* Позиционируем его абсолютным образом */
-	/* Задаем расстояние от верхней, правой, нижней и левой границы */
+	content: "";
+	display: block;
+	position: absolute;
 	top: 2px;
 	right: 2px;
 	bottom: 2px;
 	left: 2px;
-	background: #413548;     /* Добавляем фон. Если требуется, можете поставить сюда картинку в виде "галочки", которая будет символизировать, что чекбокс отмечен */
+	background: #413548;
 	border-radius: 2px;
 }
-
-/* CHART */

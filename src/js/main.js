@@ -23,6 +23,5 @@ countButton.addEventListener('click', function(evt) {
     }
     showBanks();
     showMaxPropertyCost();
-    console.log(document.querySelector('.bank__card--button').data)
     makeBanksButtonsFunctional();
 })

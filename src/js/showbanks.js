@@ -6,10 +6,24 @@ let screen = document.querySelector('.screen');
 
 function showMaxPropertyCost () {
     let values = getMaxPropertyCostAndBankName(banks);
+    let fragment = document.createDocumentFragment();
     let totalCost = document.createElement('h3');
     totalCost.textContent = `Максимально возможная стоимость квартиры по вашим
      параметрам составляет ${addWhiteSpaceInNumbers(values[0])} рублей в банке "${values[1]}"`;
-    screen.insertBefore(totalCost, screen.firstChild);
+    fragment.appendChild(totalCost);
+    fragment.appendChild(createReloadButton());
+    screen.insertBefore(fragment, screen.firstChild);
+}
+
+function createReloadButton () {
+    let reloadButton = document.createElement('button');
+    reloadButton.classList.add('button');
+    reloadButton.classList.add('button-reload');
+    reloadButton.textContent = 'Пересчитать снова';
+    reloadButton.addEventListener('click', function() {
+        window.location.reload();
+    })
+    return reloadButton;
 }
 
 function getMaxPropertyCostAndBankName(banks) {
