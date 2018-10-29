@@ -22,16 +22,16 @@
       <legend>Укажите предпочтения по ипотеке</legend>
       <div class="monthly-payment__wrap">
         <label for="monthly-payment__input">Платеж, руб/мес</label>
-        <input id="payment-range" type="range" min="0" max="500000" name="payment" value="50000">
+        <input class="payment-range" type="range" min="0" max="500000" name="payment" value="50000">
         <input class="monthly-payment__input" type="text" value="50000">
       </div>
       <div class="deposit__wrap">  
-        <label for="deposit__input">Первоначальный взнос</label>
-        <input id="deposit-range" type="range" min="0" max="10000000" name="deposit" value="1500000">
+        <label>Первоначальный взнос</label>
+        <input class="deposit-range" type="range" min="0" max="10000000" name="deposit" value="1500000">
         <input class="deposit__input" type="text" value="1500000">
       </div>
       <div class="duration__wrap">
-        <label for="duration__input">Срок, лет</label>
+        <label>Срок, лет</label>
         <input class="duration__input" type="number" value="10" min="1" max="30">
       </div>
     </fieldset>
@@ -43,7 +43,7 @@
         </li>
         <li>Срок выдачи кредита ограничен 1 и 30 годами</li>
       </ul>
-      <button class="mortgage-parameters__button button">Давайте считать</button>
+      <button class="mortgage-parameters__button button" type="button">Давайте считать</button>
     </article>
   </main>
 

@@ -18,14 +18,5 @@
   },
   "dependencies": {
     "chartist-webpack": "^0.9.5-0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mariaratnykh/mortgage.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mariaratnykh/mortgage/issues"
-  },
-  "homepage": "https://github.com/mariaratnykh/mortgage#readme",
-  "description": ""
+  }
 }

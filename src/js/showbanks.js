@@ -1,4 +1,4 @@
-import {banks} from './banks';
+import {banks} from './banks-data';
 import {addWhiteSpaceInNumbers} from './whitespace';
 export {showMaxPropertyCost, showBanks};
 
@@ -26,21 +26,25 @@ function createReloadButton () {
   reloadButton.classList.add('button');
   reloadButton.classList.add('button-reload');
   reloadButton.textContent = 'Пересчитать снова';
-  reloadButton.addEventListener('click', function() {
+  const reloadButtonHandler = () => {
     window.location.reload();
-  })
+    reloadButton.removeEventListener('click', reloadButtonHandler);
+  }
+  reloadButton.addEventListener('click', reloadButtonHandler);
   return reloadButton;
 }
 
 function getMaxPropertyCostAndBankName(banks) {
   let loansArray = [];
   let banksNames = [];
+  console.log(banks[0].isGiveTheLoan());
   banks.forEach((bank) => {
-    if (bank.isGiveTheLoan) {
-      loansArray.push(+bank.creditAmountPlusDeposit);
+    if (bank.isGiveTheLoan()) {
+      loansArray.push(+bank.creditAmountPlusDeposit());
       banksNames.push(bank.name);
     }
   });
+  console.log(loansArray)
   let maxLoan = Math.max.apply(null, loansArray);
   let maxLoanIndex = loansArray.indexOf(maxLoan);
   return [loansArray[maxLoanIndex], banksNames[maxLoanIndex]];
@@ -60,7 +64,7 @@ function createBankCard (bank) {
 function showBanks () {
   screen.textContent = "";
   banks.forEach((bank) => {
-    if(bank.isGiveTheLoan) {
+    if(bank.isGiveTheLoan()) {
       screen.appendChild(createBankCard(bank))
     }
   })
