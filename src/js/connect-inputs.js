@@ -1,14 +1,25 @@
-export {connectInputs ,paymentInput, paymentRange, depositRange, depositInput}
+/** @module connect-inputs */
+
+export {
+  paymentInput, paymentRange, depositRange, depositInput,
+  connectInputs
+}
 import {addWhiteSpaceInNumbers, removeWhiteSpaceInNumbers} from './whitespace';
 
-let paymentInput = document.querySelector('.monthly-payment__input');
-let paymentRange = document.querySelector('.payment-range');
-let depositRange = document.querySelector('.deposit-range');
-let depositInput = document.querySelector('.deposit__input');
+const paymentInput = document.querySelector('.monthly-payment__input');
+const paymentRange = document.querySelector('.payment-range');
+const depositRange = document.querySelector('.deposit-range');
+const depositInput = document.querySelector('.deposit__input');
 
 paymentInput.value = addWhiteSpaceInNumbers(paymentInput.value);
 depositInput.value = addWhiteSpaceInNumbers(depositInput.value);
 
+  /** The function connects values of input[text] and input[range]
+   * @function
+   * @static
+   * @param inputText - input['text']
+   * @param inputRange - input['range']
+   */
 function connectInputs(inputText, inputRange) {
 
   inputText.addEventListener('input', function(evt) {
@@ -19,6 +30,6 @@ function connectInputs(inputText, inputRange) {
 
   inputRange.addEventListener('input', function(evt) {
     inputText.value = evt.target.value;
-  inputText.value = addWhiteSpaceInNumbers(inputText.value);
+    inputText.value = addWhiteSpaceInNumbers(inputText.value);
   });
 }
