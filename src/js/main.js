@@ -1,9 +1,9 @@
 /**@module main */
 
-import {removeWhiteSpaceInNumbers} from './whitespace';
-import {connectInputs ,paymentInput, paymentRange, depositRange, depositInput} from './connect-inputs';
-import {showBanks, showMaxPropertyCost} from './showbanks';
-import {makeBanksButtonsFunctional} from './popup';
+import {removeWhiteSpaceInNumbers} from './user-inputs/whitespace';
+import {connectInputs ,paymentInput, paymentRange, depositRange, depositInput} from './user-inputs/connect-inputs';
+import {showBanks, showMaxPropertyCost} from './banks/showbanks';
+import {makeBanksButtonsFunctional} from './bank-popup/popup';
 import '../css/style.css';
 export {userInfo};
 
@@ -17,13 +17,17 @@ connectInputs(depositInput, depositRange);
  */
 let userInfo = {};
 
-const countButton = document.querySelector('.mortgage-parameters__button');
-countButton.addEventListener('click', function(evt) {
+function getUserInfo() {
   userInfo = {
     payment: removeWhiteSpaceInNumbers(paymentInput.value),
     deposit: removeWhiteSpaceInNumbers(depositInput.value),
     duration: document.querySelector('.duration__input').value
   }
+}
+
+const countButton = document.querySelector('.mortgage-parameters__button');
+countButton.addEventListener('click', function(evt) {
+  getUserInfo();
   showBanks();
   showMaxPropertyCost();
   makeBanksButtonsFunctional();

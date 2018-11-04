@@ -1,7 +1,7 @@
 /** @module show-banks */
 
 import {banks} from './banks-data';
-import {addWhiteSpaceInNumbers} from './whitespace';
+import {addWhiteSpaceInNumbers} from '../user-inputs/whitespace';
 export {showMaxPropertyCost, showBanks};
 
 let screen = document.querySelector('.screen');

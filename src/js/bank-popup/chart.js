@@ -1,6 +1,6 @@
 /** @module chart */
 
-import {userInfo} from './main';
+import {userInfo} from '../main';
 
 /** Functiton that creates a chart from given parameters
  * @function

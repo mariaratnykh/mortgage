@@ -1,7 +1,7 @@
 /** @module popup */
 
 import {createChartForLoan} from './chart';
-import {addWhiteSpaceInNumbers} from './whitespace';
+import {addWhiteSpaceInNumbers} from '../user-inputs/whitespace';
 export {makeBanksButtonsFunctional};
 
 let screen = document.querySelector('.screen');

@@ -1,20 +1,22 @@
 /** @module bank-class */
 
-import {userInfo} from './main';
+import {userInfo} from '../main';
 
 /** Recursive function. Returns interest payments for every year, depending on debt left
  * @param {number} creditAmount - debt
  * @param {number} payment - monthly payment
  * @param {number} percent - interest rate for the loan
- * @return {object[]} yearly payments
+ * @param {object[]} outputArr - array with output values. fuinction memorizes result of each 
+ * iteration and pushes them in that array
+ * @return {object[]}
  */
-function getInterestPayments (creditAmount, payment, percent) {
-  interestPayments.push(Math.round(creditAmount*(percent/100)));
+function getInterestPayments (creditAmount, payment, percent, outputArr) {
+  outputArr.push(Math.round(creditAmount*(percent/100)));
   creditAmount = creditAmount*(1 + (percent/100)) - payment*12;
   if(creditAmount > 0) {
-    getInterestPayments(creditAmount, payment, percent);
+    getInterestPayments(creditAmount, payment, percent, outputArr);
   }
-  return interestPayments;
+  return outputArr;
 };
 
 /** Class representing a Bank
@@ -58,7 +60,7 @@ export class Bank {
   interestPaymentsPerYear() { 
     let creditAmount = this.creditAmountForUser();
     let interestPayments = [];
-    return getInterestPayments(creditAmount, userInfo.payment, this.percent)
+    return getInterestPayments(creditAmount, userInfo.payment, this.percent, interestPayments)
   }
   
   /** Summarize all percent payments
